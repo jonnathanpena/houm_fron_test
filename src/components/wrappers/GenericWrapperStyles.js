@@ -16,7 +16,7 @@ export const ButtonWrapperStyled = styled( ButtonWrapper )(() => ({
   },
 }));
 
-export const IconButtonWrapperStyled = styled( IconButtonWrapper )(({ navbar }) => ({
-  color: navbar ? colors.lightMenuColorText : colors.darkColorMenuText,
-  float: navbar ? 'right' : 'initial',
+export const IconButtonWrapperStyled = styled( IconButtonWrapper )(() => ({
+  color: colors.lightMenuColorText,
+  float: 'right',
 }));
