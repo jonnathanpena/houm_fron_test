@@ -18,7 +18,7 @@ import {
 } from './MainNavBarStyles';
 
 const MainNavBar = () => {
-  const pages = ['Registrar inmueble', 'Contacto'];
+  const pages = ['Inicio', 'Registrar inmueble', 'Contacto'];
 
   return (
     <MainNavbarHeaderStyled position="static">

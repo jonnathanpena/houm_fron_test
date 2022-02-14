@@ -5,7 +5,6 @@ import images from '../../../constants/images';
 import MenuWrapper from '../../../components/wrappers/MenuWrapper';
 import MenuIconWrapper from '../../../components/wrappers/MenuIconWrapper';
 import MenuItemWrapper from '../../../components/wrappers/MenuItemWrapper';
-import SearchIconWrapper from '../../../components/wrappers/SearchIconWrapper';
 import TypographyWrapper from '../../../components/wrappers/TypographyWrapper';
 
 import {
@@ -61,7 +60,6 @@ const MainNavBarMobile = ({ pages }) => {
           aria-haspopup="true"
           onClick={handleOpenNavMenu}
           color="inherit"
-          navbar
         >
           <MenuIconWrapper />
         </IconButtonWrapperStyled>
