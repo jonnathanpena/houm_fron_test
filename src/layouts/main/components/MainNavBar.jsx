@@ -3,8 +3,6 @@ import React from 'react';
 import colors from '../../../constants/colors';
 import images from '../../../constants/images';
 
-import AppBarWapper from '../../../components/wrappers/AppBarWrapper';
-import BoxWrapper from '../../../components/wrappers/BoxWrapper';
 import ToolbarWrapper from '../../../components/wrappers/ToolBarWrapper';
 import TypographyWrapper from '../../../components/wrappers/TypographyWrapper';
 
@@ -15,6 +13,7 @@ import {
 } from '../../../components/wrappers/GenericWrapperStyles';
 import {
   BoxWrapperNavbarStyled,
+  MainNavbarHeaderStyled,
   NavBarContainerStyles,
 } from './MainNavBarStyles';
 
@@ -22,7 +21,7 @@ const MainNavBar = () => {
   const pages = ['Registrar inmueble', 'Contacto'];
 
   return (
-    <AppBarWapper position="static">
+    <MainNavbarHeaderStyled position="static">
       <NavBarContainerStyles maxWidth="xl">
         <ToolbarWrapper disableGutters>
           <TypographyWrapper
@@ -54,7 +53,7 @@ const MainNavBar = () => {
           <MainNavBarMobile pages={pages} />
         </ToolbarWrapper>
       </NavBarContainerStyles>
-    </AppBarWapper>
+    </MainNavbarHeaderStyled>
   )
 };
 

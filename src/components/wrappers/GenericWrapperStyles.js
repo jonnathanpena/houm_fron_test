@@ -11,6 +11,9 @@ export const ButtonWrapperStyled = styled( ButtonWrapper )(() => ({
   textTransform: 'none',
   color: colors.mainNavBarText,
   fontSize: fonts.regularFontSize,
+  '&:hover': {
+    background: 'transparent',
+  },
 }));
 
 export const IconButtonWrapperStyled = styled( IconButtonWrapper )(({ navbar }) => ({
