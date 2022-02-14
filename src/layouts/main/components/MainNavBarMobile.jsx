@@ -5,6 +5,7 @@ import images from '../../../constants/images';
 import MenuWrapper from '../../../components/wrappers/MenuWrapper';
 import MenuIconWrapper from '../../../components/wrappers/MenuIconWrapper';
 import MenuItemWrapper from '../../../components/wrappers/MenuItemWrapper';
+import SearchIconWrapper from '../../../components/wrappers/SearchIconWrapper';
 import TypographyWrapper from '../../../components/wrappers/TypographyWrapper';
 
 import {
@@ -12,6 +13,10 @@ import {
 } from '../../../components/wrappers/GenericWrapperStyles';
 import {
   BoxWrapperNavbarStyled,
+  InputBaseSearchStyled,
+  SearchContentIconStyled,
+  SearchIconHeaderStyled,
+  SearchWrapperStyled,
 } from './MainNavBarStyles';
 
 const MainNavBarMobile = ({ pages }) => {
@@ -35,8 +40,19 @@ const MainNavBarMobile = ({ pages }) => {
       >
         <img src={images.navbarLogo} alt="logo" />
       </TypographyWrapper>
+      <SearchWrapperStyled 
+        sx={{ display: { xs: 'flex', md: 'none' }}}
+      >
+        <SearchContentIconStyled>
+          <SearchIconHeaderStyled />
+        </SearchContentIconStyled>
+        <InputBaseSearchStyled
+          placeholder="Search…"
+          inputProps={{ 'aria-label': 'search' }}
+        />
+      </SearchWrapperStyled>
       <BoxWrapperNavbarStyled sx={{ flexGrow: 1,
-        display: { xs: 'flex', md: 'none' },
+        display: { xs: 'none', sm: 'flex', md: 'none' },
       }}>
         <IconButtonWrapperStyled
           size="large"
