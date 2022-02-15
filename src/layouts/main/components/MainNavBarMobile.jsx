@@ -7,15 +7,13 @@ import MenuIconWrapper from '../../../components/wrappers/MenuIconWrapper';
 import MenuItemWrapper from '../../../components/wrappers/MenuItemWrapper';
 import TypographyWrapper from '../../../components/wrappers/TypographyWrapper';
 
+import SearchInput from '../../../components/SearchInput/SearchInput';
+
 import {
   IconButtonWrapperStyled,
 } from '../../../components/wrappers/GenericWrapperStyles';
 import {
   BoxWrapperNavbarStyled,
-  InputBaseSearchStyled,
-  SearchContentIconStyled,
-  SearchIconHeaderStyled,
-  SearchWrapperStyled,
 } from './MainNavBarStyles';
 
 const MainNavBarMobile = ({ pages }) => {
@@ -39,17 +37,7 @@ const MainNavBarMobile = ({ pages }) => {
       >
         <img src={images.navbarLogo} alt="logo" />
       </TypographyWrapper>
-      <SearchWrapperStyled 
-        sx={{ display: { xs: 'flex', md: 'none' }}}
-      >
-        <SearchContentIconStyled>
-          <SearchIconHeaderStyled />
-        </SearchContentIconStyled>
-        <InputBaseSearchStyled
-          placeholder="Search…"
-          inputProps={{ 'aria-label': 'search' }}
-        />
-      </SearchWrapperStyled>
+      <SearchInput xs="flex" md="none" />
       <BoxWrapperNavbarStyled sx={{ flexGrow: 1,
         display: { xs: 'none', sm: 'flex', md: 'none' },
       }}>
