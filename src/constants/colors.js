@@ -7,6 +7,8 @@ const colors = {
   lightMenuColorText: '#000',
   darkColorMenuText: '#FFF',
   orangeColor: '#FF452B',
+  cardSubtitleColor: '#607D8B',
+  cardTitleColor: '#212121',
 };
 
 export default colors;
