@@ -1,12 +1,25 @@
+import { useState, useMemo } from 'react';
 import Router from './routes/Routes';
 
 import { ToastContainer } from 'react-toastify';
 
+import SearchContext from './contexts/SearchContext';
+
 import './App.css';
 
 function App() {
+  const [searchText, setSeachText] = useState('');
+
+  const searchData = useMemo(
+    () => ({
+      searchText,
+      setSeachText,
+    }),
+    [searchText]
+  );
+
   return (
-    <div>
+    <SearchContext.Provider value={searchData}>
       <Router />
       <ToastContainer 
         position="top-right"
@@ -18,7 +31,7 @@ function App() {
         draggable
         pauseOnHover
       />
-    </div>
+    </SearchContext.Provider>
   );
 }
 

@@ -53,7 +53,7 @@ const LoadingScreen = ({ ...other }) => (
     </Box>
 
     <RootStyle {...other}>
-      <Logo sx={{ width: 64, height: 64 }} />
+      <Logo sx={{ width: 105, height: 100, display: 'flex' }} />
       {/*<motion.div
         initial={{ rotateY: 0 }}
         animate={{ rotateY: 360 }}

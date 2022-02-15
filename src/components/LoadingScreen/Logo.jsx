@@ -12,7 +12,7 @@ const Logo = ({ sx }) => {
       ...sx,
     }}
     >
-      <img src={images.navbarLogo} alt="logo" />
+      <img src={images.navbarLogo} alt="logo" width="100%" />
     </Box>
   );
 };

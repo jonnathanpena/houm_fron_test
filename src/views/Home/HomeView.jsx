@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
 import { toast } from 'react-toastify';
@@ -5,18 +6,22 @@ import { toast } from 'react-toastify';
 import CardPublication from './CardPublication/CardPublication';
 import GridWrapper from '../../components/wrappers/GridWrapper';
 import Header from './components/Header/Header';
+import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
 
 import { getAllProperties } from '../../services/property.service';
+import searchProperty from '../../hooks/searchProperty';
 
 import {
   HomeViewRoot,
 } from './HomeViewStyles';
 
 const HomeView = () => {
+  const { searchText } = searchProperty();
   const [properties, setProperties] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
 
   const getAll = async () => {
+    setLoading(true);
     try {
       const data = await getAllProperties();
 
@@ -26,14 +31,38 @@ const HomeView = () => {
     } catch (error) {
       toast.error(error.message);
     }
-    setLoading(false);
+    setLoading(true);
+  };
+
+  const filterBySearch = () => {
+    setLoading(true);
+    if ( searchText ) {
+      const filter = searchText.toLowerCase();
+      setProperties(
+        properties.filter(p => 
+          p.property_type.toLowerCase().includes(filter) ||
+          p.property_owner.toLowerCase().includes(filter) ||
+          p.property_direction.toLowerCase().includes(filter) ||
+          p.property_service.toLowerCase().includes(filter) ||
+          p.property_amount.toLowerCase().includes(filter)
+        )
+      );
+      setLoading(false);
+      return;
+    }
+
+    getAll();
   };
 
   React.useEffect(() => {
     getAll();
   }, []);
 
-  if (loading) return <p>...Loading</p>;
+  React.useEffect(() => {
+    filterBySearch();
+  }, [searchText])
+
+  if (loading) return <LoadingScreen />;
 
   return (
     <GridWrapper container>

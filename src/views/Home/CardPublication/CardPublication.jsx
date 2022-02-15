@@ -6,7 +6,6 @@ import GridWrapper from '../../../components/wrappers/GridWrapper';
 import BadgeWrapper from '../../../components/wrappers/BadgeWrapper';
 import BathIconWrapper from '../../../components/wrappers/BathIconWrapper';
 import BedIconWrapper from '../../../components/wrappers/BedIconWrapper';
-import Inmueble1Image from '../../../assets/images/properties/imueble1.jpg';
 
 import {
   CardActionsWrapperStyled,

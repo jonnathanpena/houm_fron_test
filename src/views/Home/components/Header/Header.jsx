@@ -1,21 +1,18 @@
 import React from 'react';
 
+import SearchInput from '../../../../components/SearchInput/SearchInput';
 import GridWrapper from '../../../../components/wrappers/GridWrapper';
+
 import {
   RootHeaderContainer,
 } from './HeaderStyles';
 
-const Header = () => {
-  return (
-    <RootHeaderContainer container>
-      <GridWrapper xs={6} sm={8}>
-        Buscador
-      </GridWrapper>
-      <GridWrapper xs={6} sm={4}>
-        Botones
-      </GridWrapper>
-    </RootHeaderContainer>
-  )
-};
+const Header = () => (
+  <RootHeaderContainer container>
+    <GridWrapper xs={6} sm={8}>
+      <SearchInput xs="none" md="flex" />
+    </GridWrapper>
+  </RootHeaderContainer>
+);
 
 export default Header;
