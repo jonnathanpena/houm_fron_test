@@ -4,3 +4,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.infinite-scroll-component__outerdiv {
+  width: 100% !important;
+}
+
+.infinite-scroll-component__outerdiv .infinite-scroll-component {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}

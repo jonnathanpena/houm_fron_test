@@ -1,5 +1,5 @@
 import { Box, GlobalStyles, CircularProgress } from '@mui/material';
-import { alpha, styled, useTheme } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import colors from '../../constants/colors.js';
 
 import { motion } from 'framer-motion';

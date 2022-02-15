@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
+import InfiniteScroll from "react-infinite-scroll-component";
 import { toast } from 'react-toastify';
 
 import CardPublication from './CardPublication/CardPublication';
@@ -18,15 +19,26 @@ import {
 const HomeView = () => {
   const { searchText } = searchProperty();
   const [properties, setProperties] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [page, setPage] = React.useState(1);
+  const [next, setNext] = React.useState(true);
 
-  const getAll = async () => {
-    setLoading(true);
+  const getAll = async (page) => {
+    if ( parseInt(page.toString()) === 0 ) {
+      setPage( 1 );
+      setNext(false);
+      return;
+    } else if ( parseInt(page.toString()) === 1 ) {
+      setNext(true);
+      setProperties([]);
+    }
     try {
-      const data = await getAllProperties();
+      const response = await getAllProperties(page);
 
-      if (data && data.length > 0) {
-        setProperties(data);
+      if (response && response.data && response.data.length > 0) {
+        setProperties([...properties, ...response.data]);
+        setPage(parseInt(response.next));
+        setNext(true);
       }
     } catch (error) {
       toast.error(error.message);
@@ -47,15 +59,20 @@ const HomeView = () => {
           p.property_amount.toLowerCase().includes(filter)
         )
       );
+      setNext(false);
       setLoading(false);
       return;
     }
 
-    getAll();
+    getAll(1);
+  };
+
+  const nextPage = () => {
+    getAll(page);
   };
 
   React.useEffect(() => {
-    getAll();
+    getAll(1);
   }, []);
 
   React.useEffect(() => {
@@ -68,11 +85,18 @@ const HomeView = () => {
     <GridWrapper container>
       <Header />
       <HomeViewRoot container>
-        {properties.map((property, index) => (
-          <GridWrapper item xs={12} sm={6} md={3} key={index}>
-            <CardPublication data={property} />
-          </GridWrapper>
-        ))}
+        <InfiniteScroll
+          dataLength={properties.length}
+          next={nextPage}
+          hasMore={next}
+          loader={<LoadingScreen />}
+         >
+          {properties.map((property, index) => (
+            <GridWrapper item xs={12} sm={6} md={3} key={index}>
+              <CardPublication data={property} />
+            </GridWrapper>
+          ))}
+        </InfiniteScroll>
       </HomeViewRoot>
     </GridWrapper>
   )
