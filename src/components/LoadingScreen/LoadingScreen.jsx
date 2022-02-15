@@ -1,5 +1,8 @@
 import { Box, GlobalStyles, CircularProgress } from '@mui/material';
 import { alpha, styled, useTheme } from '@mui/material/styles';
+import colors from '../../constants/colors.js';
+
+import { motion } from 'framer-motion';
 
 import Logo from './Logo.jsx';
 
@@ -53,8 +56,7 @@ const LoadingScreen = ({ ...other }) => (
     </Box>
 
     <RootStyle {...other}>
-      <Logo sx={{ width: 105, height: 100, display: 'flex' }} />
-      {/*<motion.div
+      <motion.div
         initial={{ rotateY: 0 }}
         animate={{ rotateY: 360 }}
         transition={{
@@ -64,8 +66,8 @@ const LoadingScreen = ({ ...other }) => (
           repeat: Infinity,
         }}
       >
-        <Logo sx={{ width: 64, height: 64 }} />
-      </motion.div>*/}
+        <Logo sx={{ width: 105, height: 100, display: 'flex' }} />
+      </motion.div>
 
       <Box
         animate={{
@@ -80,7 +82,7 @@ const LoadingScreen = ({ ...other }) => (
           height: 100,
           borderRadius: '25%',
           position: 'absolute',
-          border: ( theme ) => `solid 3px ${alpha( theme.palette.primary.dark, 0.24 )}`,
+          border: ( theme ) => `solid 3px ${colors.lightMenuColorText}`,
         }}
       />
 
@@ -101,7 +103,7 @@ const LoadingScreen = ({ ...other }) => (
           height: 120,
           borderRadius: '25%',
           position: 'absolute',
-          border: ( theme ) => `solid 8px ${alpha( theme.palette.primary.dark, 0.24 )}`,
+          border: ( theme ) => `solid 8px ${colors.lightMenuColorText}`,
         }}
       />
     </RootStyle>
