@@ -1,9 +1,12 @@
-import MainLayout from './layouts/main';
+import Router from './routes/Routes';
+
 import './App.css';
 
 function App() {
   return (
-    <MainLayout />
+    <div>
+      <Router />
+    </div>
   );
 }
 
