@@ -31,7 +31,7 @@ const HomeView = () => {
     } catch (error) {
       toast.error(error.message);
     }
-    setLoading(true);
+    setLoading(false);
   };
 
   const filterBySearch = () => {
