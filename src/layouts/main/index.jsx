@@ -9,10 +9,11 @@ import {
   RootMain,
 } from './MainLayoutStyles';
 
-const MainLayout = () => (
+const MainLayout = (props) => (
   <RootMain>
     <MainNavBar />
     <BoxWrapper sx={{ pb: 7 }}>
+      { props.children }
       <PaperWrapper 
         sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
         elevation={3}
