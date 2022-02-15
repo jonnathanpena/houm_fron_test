@@ -16,51 +16,53 @@ import {
   TitlePropiertyStyled,
 } from './CardPublicationStyles';
 
-const CardPublication = () => {
+const CardPublication = ( props ) => {
+  const { data } = props;
+
   return (
     <CardWrapperStyled>
       <CardMedia
         component="img"
         height="200"
-        image={Inmueble1Image}
-        alt="green iguana"
+        image={data.image}
+        alt="Property image"
       />
       <CardContentStyled>
         <GridWrapper container>
           <GridWrapper item>
             <SubtitlePropiertyStyled>
-              Departamento
+              { data.property_type }
             </SubtitlePropiertyStyled>
           </GridWrapper>
         </GridWrapper>
         <GridWrapper container>
           <TitlePropiertyStyled>
-            Martín Carrero
+            { data.property_owner }
           </TitlePropiertyStyled>
         </GridWrapper>
         <GridWrapper container>
           <SubtitlePropiertyStyled>
-            Dirección completa del inmueble
+            { data.property_direction }
           </SubtitlePropiertyStyled>
         </GridWrapper>
         <GridWrapper container justifyContent="space-between">
           <GridWrapper item>
             <TitlePropiertyStyled>
-              Venta
+              { data.property_service }
             </TitlePropiertyStyled>
           </GridWrapper>
           <GridWrapper item>
             <TitlePropiertyStyled>
-              $1,500.00
+              { `$${data.property_amount}` }
             </TitlePropiertyStyled>
           </GridWrapper>
         </GridWrapper>
       </CardContentStyled>
       <CardActionsWrapperStyled>
-        <BadgeWrapper badgeContent={4} color="default">
+        <BadgeWrapper badgeContent={data.bath_count} color="default">
           <BathIconWrapper />
         </BadgeWrapper>
-        <BadgeWrapper badgeContent={4} color="default">
+        <BadgeWrapper badgeContent={data.bed_count} color="default">
           <BedIconWrapper />
         </BadgeWrapper>
       </CardActionsWrapperStyled>
